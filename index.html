@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Md Golam Moula Mehedi Hasan — Assistant Professor of Computer Science at Iona University. Research in Explainable AI, adversarial machine learning, and cybersecurity." />
+    <meta name="author" content="Md Golam Moula Mehedi Hasan" />
+    <title>Mehedi Hasan | Iona University</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/profile.jpg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --navy:   #0d1b2a;
+            --teal:   #1a7f8e;
+            --teal-l: #22a8bb;
+            --gold:   #c49a2a;
+            --cream:  #f7f4ef;
+            --warm:   #ede8e0;
+            --text:   #2c3e50;
+            --muted:  #6b7c8d;
+            --border: #d6cfc5;
+            --white:  #ffffff;
+            --sidebar-w: 280px;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', system-ui, sans-serif;
+            --transition: 0.25s ease;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text); background: var(--cream); }
+        a { color: var(--teal); text-decoration: none; transition: color var(--transition); }
+        a:hover { color: var(--teal-l); }
+        ul { list-style: none; }
+        h1,h2,h3,h4 { font-family: var(--font-display); }
+
+        /* SIDEBAR */
+        #sideNav {
+            position: fixed; top: 0; left: 0;
+            width: var(--sidebar-w); height: 100vh;
+            background: var(--navy);
+            display: flex; flex-direction: column; align-items: center;
+            padding: 2.5rem 1.5rem 2rem;
+            z-index: 100; overflow-y: auto;
+        }
+        .nav-profile { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 2rem; }
+        .nav-profile img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--teal); object-fit: cover; margin-bottom: 0.9rem; }
+        .nav-profile .nav-name { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); line-height: 1.3; }
+        .nav-profile .nav-title { font-size: 0.72rem; color: var(--teal-l); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; }
+        nav ul { width: 100%; }
+        nav ul li a {
+            display: block; color: rgba(255,255,255,0.65);
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 0.55rem 1rem; border-radius: 6px;
+            transition: background var(--transition), color var(--transition);
+            margin-bottom: 2px;
+        }
+        nav ul li a:hover, nav ul li a.active { background: rgba(26,127,142,0.18); color: var(--teal-l); }
+        .nav-divider { width: 100%; height: 1px; background: rgba(255,255,255,0.08); margin: 1rem 0; }
+        .social-bar { display: flex; gap: 0.7rem; margin-top: auto; padding-top: 1.5rem; flex-wrap: wrap; justify-content: center; }
+        .social-bar a {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.55); font-size: 0.82rem;
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .social-bar a:hover { border-color: var(--teal); color: var(--teal-l); }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none; position: fixed; top: 1rem; left: 1rem;
+            z-index: 200; background: var(--navy); border: none;
+            border-radius: 8px; padding: 0.5rem 0.7rem; cursor: pointer;
+            flex-direction: column; gap: 5px;
+        }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+
+        /* MAIN */
+        #main-content { margin-left: var(--sidebar-w); min-height: 100vh; }
+
+        /* SECTIONS */
+        section { padding: 4rem; border-bottom: 1px solid var(--border); }
+        section:last-child { border-bottom: none; }
+        section:nth-child(even) { background: var(--white); }
+
+        .section-title {
+            font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 0.4rem;
+            position: relative; display: inline-block;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 48px; height: 3px;
+            background: var(--teal); border-radius: 2px; margin-top: 0.45rem;
+        }
+        .section-lead { color: var(--muted); font-size: 0.9rem; margin-bottom: 2.5rem; margin-top: 0.5rem; }
+
+        /* ABOUT */
+        #about {
+            background: linear-gradient(135deg, var(--navy) 0%, #163447 100%);
+            color: var(--white); padding: 5rem 4rem; border-bottom: none;
+        }
+        .about-inner { max-width: 760px; }
+        #about .section-title { font-size: 2.6rem; color: var(--white); }
+        #about .section-title::after { background: var(--gold); }
+        .about-role {
+            font-size: 1rem; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--teal-l); margin: 0.6rem 0 1.5rem;
+        }
+        .about-bio { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.82); margin-bottom: 1.5rem; }
+        .about-meta { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem; font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+        .about-meta span { display: flex; align-items: center; gap: 0.4rem; }
+        .about-meta i { color: var(--teal-l); }
+        .about-meta a { color: var(--teal-l); }
+        .about-meta a:hover { color: var(--white); }
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-cv {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--teal); color: var(--white);
+            font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;
+            padding: 0.65rem 1.4rem; border-radius: 6px;
+            transition: background var(--transition), transform var(--transition);
+        }
+        .btn-cv:hover { background: var(--teal-l); color: var(--white); transform: translateY(-1px); }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.75);
+            font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;
+            padding: 0.65rem 1.4rem; border-radius: 6px;
+            transition: border-color var(--transition), color var(--transition);
+        }
+        .btn-outline:hover { border-color: var(--teal-l); color: var(--white); }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+        .tag { background: rgba(26,127,142,0.12); color: var(--teal); border: 1px solid rgba(26,127,142,0.3); border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.82rem; font-weight: 600; }
+        #about .tag { background: rgba(26,168,187,0.12); color: var(--teal-l); border-color: rgba(26,168,187,0.3); }
+
+        /* TIMELINE */
+        .timeline { display: flex; flex-direction: column; gap: 2.2rem; }
+        .tl-entry { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 1.5rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--border); }
+        .tl-entry:last-child { border-bottom: none; padding-bottom: 0; }
+        .tl-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.15rem; }
+        .tl-org { font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; color: var(--teal); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .tl-date { font-size: 0.82rem; font-weight: 600; color: var(--muted); white-space: nowrap; padding-top: 0.2rem; text-align: right; }
+        .tl-body { font-size: 0.93rem; color: var(--text); }
+        .tl-body p { margin-bottom: 0.35rem; }
+        .tl-body ul { padding-left: 1.2rem; list-style: disc; }
+        .tl-body ul li { margin-bottom: 0.2rem; }
+
+        /* PUBLICATIONS */
+        .pub-group { margin-bottom: 2.5rem; }
+        .pub-group-title {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+            color: var(--navy); border-left: 3px solid var(--teal);
+            padding-left: 0.75rem; margin-bottom: 1.2rem;
+        }
+        .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+        .pub-item {
+            background: var(--cream); border: 1px solid var(--border); border-radius: 8px;
+            padding: 1rem 1.2rem; font-size: 0.9rem; line-height: 1.65;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        section:nth-child(even) .pub-item { background: var(--warm); }
+        .pub-item:hover { border-color: var(--teal); box-shadow: 0 2px 12px rgba(26,127,142,0.1); }
+        .pub-item b { color: var(--navy); }
+        .pub-badge {
+            display: inline-block; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            padding: 0.15rem 0.55rem; border-radius: 4px; margin-left: 0.5rem; vertical-align: middle;
+        }
+        .badge-press  { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+        .badge-accepted { background: #d1e7dd; color: #0a3622; border: 1px solid #a3cfbb; }
+        .pub-link { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.8rem; font-weight: 600; color: var(--teal); margin-left: 0.4rem; }
+        .pub-link:hover { color: var(--teal-l); }
+        .scholar-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--navy); color: var(--white);
+            font-size: 0.82rem; font-weight: 600;
+            padding: 0.45rem 1rem; border-radius: 6px; margin-bottom: 1.8rem;
+            transition: background var(--transition);
+        }
+        .scholar-link:hover { background: var(--teal); color: var(--white); }
+
+        /* METRICS */
+        .metrics-row { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .metric-box { background: var(--navy); color: var(--white); border-radius: 10px; padding: 1rem 1.4rem; min-width: 110px; text-align: center; }
+        .metric-box .metric-val { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); line-height: 1.1; }
+        .metric-box .metric-lbl { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
+
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.2rem; }
+        .skill-card { background: var(--cream); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.3rem; }
+        section:nth-child(even) .skill-card { background: var(--warm); }
+        .skill-card h4 { font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.55rem; }
+        .skill-card p { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+
+        /* SERVICE */
+        .service-group { margin-bottom: 2rem; }
+        .service-group-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+        .service-list li { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.91rem; padding: 0.35rem 0; border-bottom: 1px dotted var(--border); }
+        .service-list li:last-child { border-bottom: none; }
+        .service-list li b { color: var(--navy); min-width: 160px; flex-shrink: 0; }
+        .svc-year { font-size: 0.78rem; color: var(--muted); font-weight: 600; margin-left: auto; white-space: nowrap; }
+
+        /* AWARDS */
+        .award-list li { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 0.92rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+        .award-list li:last-child { border-bottom: none; }
+        .award-icon { color: var(--gold); font-size: 1rem; margin-top: 0.2rem; flex-shrink: 0; }
+
+        /* TEACHING */
+        .teaching-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+        .teaching-semester { }
+        .semester-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+        .course-list { display: flex; flex-direction: column; gap: 0.3rem; }
+        .course-item { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.88rem; }
+        .course-code { font-weight: 700; color: var(--navy); min-width: 120px; flex-shrink: 0; }
+        .course-name { color: var(--text); }
+
+        /* FOOTER */
+        footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; font-size: 0.78rem; padding: 1.5rem; margin-left: var(--sidebar-w); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            :root { --sidebar-w: 0px; }
+            #sideNav { transform: translateX(-280px); width: 280px; transition: transform var(--transition); }
+            #sideNav.open { transform: translateX(0); }
+            .hamburger { display: flex; }
+            #main-content { margin-left: 0; }
+            section { padding: 3rem 1.8rem; }
+            #about { padding: 4rem 1.8rem 3rem; }
+            .tl-entry { grid-template-columns: 1fr; }
+            .tl-date { text-align: left; }
+            footer { margin-left: 0; }
+        }
+        @media (max-width: 520px) {
+            #about .section-title { font-size: 1.9rem; }
+            .metrics-row { gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body id="page-top">
+
+<!-- Hamburger -->
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar -->
+<nav id="sideNav">
+    <div class="nav-profile">
+        <img src="assets/img/profile.jpg" alt="Mehedi Hasan" />
+        <div class="nav-name">Md Golam Moula<br>Mehedi Hasan</div>
+        <div class="nav-title">Assistant Professor</div>
+    </div>
+    <div class="nav-divider"></div>
+    <ul>
+        <li><a href="#about"        class="nav-link">About</a></li>
+        <li><a href="#research"     class="nav-link">Research</a></li>
+        <li><a href="#experience"   class="nav-link">Experience</a></li>
+        <li><a href="#teaching"     class="nav-link">Teaching</a></li>
+        <li><a href="#education"    class="nav-link">Education</a></li>
+        <li><a href="#publications" class="nav-link">Publications</a></li>
+        <li><a href="#skills"       class="nav-link">Skills</a></li>
+        <li><a href="#service"      class="nav-link">Service</a></li>
+        <li><a href="#awards"       class="nav-link">Honors &amp; Awards</a></li>
+    </ul>
+    <div class="social-bar">
+        <a href="https://www.linkedin.com/in/mehedihasan42/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=d9jijC0AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://github.com/mmehediha42" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.facebook.com/uzzalBUET/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div id="main-content">
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-inner">
+            <h1 class="section-title">Md Golam Moula Mehedi Hasan</h1>
+            <div class="about-role">Assistant Professor (Tenure Track) &middot; Computer Science &middot; Iona University</div>
+            <p class="about-bio">
+                I am an Assistant Professor of Computer Science at Iona University, where I have been on the tenure track since August 2022. My research focuses on the security and trustworthiness of AI systems &mdash; specifically, how explainability methods like SHAP and LIME can be exploited by adversaries, and how counterfactual explanations can be made more meaningful, fair, and robust. Before joining Iona, I spent six years as a software engineer in the financial industry and completed my Ph.D. at Tennessee Tech University.
+            </p>
+            <div class="about-meta">
+                <span><i class="fas fa-map-marker-alt"></i> New York, NY</span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:mmehedihasan@iona.edu">mmehedihasan@iona.edu</a></span>
+                <span><i class="fas fa-university"></i> <a href="https://www.iona.edu/faculty/hasan-mehedi" target="_blank">Iona Faculty Profile</a></span>
+            </div>
+            <div class="tag-cloud" style="margin-bottom:1.8rem;">
+                <span class="tag">Explainable AI</span>
+                <span class="tag">Adversarial ML</span>
+                <span class="tag">Counterfactual Explanations</span>
+                <span class="tag">AI Security</span>
+                <span class="tag">Fair ML</span>
+                <span class="tag">Game-Theoretic Security</span>
+            </div>
+            <div class="btn-row">
+                <a class="btn-cv" href="resume/resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Download CV</a>
+                <a class="btn-outline" href="https://scholar.google.com/citations?user=d9jijC0AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+        <h2 class="section-title">Research</h2>
+        <p class="section-lead">Current focus areas and active projects</p>
+        <div class="timeline">
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">XAI-Guided Adversarial Attacks</div>
+                    <div class="tl-org">In Progress &middot; Target: IEEE TDSC or AAAI 2027</div>
+                    <div class="tl-body">
+                        <p>With Sushil Poudel (Caldwell University) and Kshitiz Aryal (University of Nebraska at Omaha). Investigates how SHAP-based explanations can be systematically exploited to craft adversarial examples that evade intrusion detection systems &mdash; demonstrating that transparency and security can pull in opposite directions in deployed XAI pipelines.</p>
+                    </div>
+                </div>
+                <div class="tl-date">Active</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Counterfactual Retraining and Model Behavior Shift</div>
+                    <div class="tl-org">In Progress &middot; Target: JAIR or IJCAI 2027</div>
+                    <div class="tl-body">
+                        <p>Examines how retraining on counterfactual examples shifts a model's decision boundary, and whether that shift has implications for robustness and differential privacy guarantees.</p>
+                    </div>
+                </div>
+                <div class="tl-date">Active</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-lead">Research and industry positions</p>
+        <div class="timeline">
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Assistant Professor, Tenure Track</div>
+                    <div class="tl-org">Iona University &mdash; Department of Computer Science</div>
+                    <div class="tl-body">
+                        <ul>
+                            <li>Teaching undergraduate and graduate courses in AI, networking, parallel computing, and computational problem solving.</li>
+                            <li>Conducting research in explainable AI, adversarial machine learning, and cybersecurity.</li>
+                            <li>Supervising M.S. theses, mentoring students, and serving in departmental and university committees.</li>
+                            <li>ABET Coordinator for the CS Program (2025&ndash;present); GCTL Provost Fellow (2025&ndash;2026).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-date">Aug 2022 &ndash; Present</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Graduate Research Assistant</div>
+                    <div class="tl-org">Tennessee Tech University</div>
+                    <div class="tl-body">
+                        <ul>
+                            <li>Dissertation research on explainable AI with focus on counterfactual example generation and fairness.</li>
+                            <li>Analyzed pricing competition in V2G systems using game-theoretic modeling.</li>
+                            <li>Applied machine learning to smart fraud detection in AMI networks.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-date">Aug 2018 &ndash; Jul 2022</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Visiting International Researcher</div>
+                    <div class="tl-org">Tennessee Tech University</div>
+                    <div class="tl-body"><p>Applied blockchain concepts to secure autonomous vehicle service design.</p></div>
+                </div>
+                <div class="tl-date">May &ndash; Aug 2018</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Graduate Research Assistant</div>
+                    <div class="tl-org">Tennessee Tech University</div>
+                    <div class="tl-body"><p>M.S. research on game-theoretic approaches to mitigating co-resident attacks in cloud environments.</p></div>
+                </div>
+                <div class="tl-date">Jan 2016 &ndash; Dec 2017</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Senior Software Engineer</div>
+                    <div class="tl-org">Southeast Bank Ltd, Dhaka, Bangladesh</div>
+                    <div class="tl-body">
+                        <ul>
+                            <li>Led development of the Foreign Exchange Module (Letter of Credit).</li>
+                            <li>Team leader for the anti-money laundering Sanction Screening Solution.</li>
+                            <li>Developed Automated Cheque Processing software per Bangladesh Bank requirements.</li>
+                            <li>Resolved critical issues in loan management and HR management systems.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tl-date">Jun 2010 &ndash; Dec 2015</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+        <h2 class="section-title">Teaching</h2>
+        <p class="section-lead">Courses taught at Iona University (2022&ndash;present)</p>
+        <div class="teaching-grid">
+            <div class="teaching-semester">
+                <div class="semester-label">Spring 2026</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 180-A/B</span><span class="course-name">Computational Problem Solving</span></div>
+                    <div class="course-item"><span class="course-code">CS 461/760</span><span class="course-name">Artificial Intelligence</span></div>
+                    <div class="course-item"><span class="course-code">CS 482</span><span class="course-name">Software Project Implementation</span></div>
+                    <div class="course-item"><span class="course-code">CS 464</span><span class="course-name">Parallel &amp; Scientific Computing (IS)</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Fall 2025</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 180-A/B</span><span class="course-name">Computational Problem Solving</span></div>
+                    <div class="course-item"><span class="course-code">CS 475</span><span class="course-name">Computer Networking</span></div>
+                    <div class="course-item"><span class="course-code">CS 777</span><span class="course-name">Computer Networking (Graduate)</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Spring 2025</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 180</span><span class="course-name">Computational Problem Solving</span></div>
+                    <div class="course-item"><span class="course-code">CS 231</span><span class="course-name">Programming in a UNIX Environment</span></div>
+                    <div class="course-item"><span class="course-code">CS 464</span><span class="course-name">Parallel &amp; Scientific Computing</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Fall 2024</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 180-A/B</span><span class="course-name">Computational Problem Solving</span></div>
+                    <div class="course-item"><span class="course-code">CS 475/777</span><span class="course-name">Computer Networking</span></div>
+                    <div class="course-item"><span class="course-code">CS 980</span><span class="course-name">Thesis Preparation Seminar</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Spring 2024</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 231</span><span class="course-name">Programming in a UNIX Environment</span></div>
+                    <div class="course-item"><span class="course-code">CS 464/772</span><span class="course-name">Parallel &amp; Scientific Computing</span></div>
+                    <div class="course-item"><span class="course-code">CS 461/760</span><span class="course-name">Artificial Intelligence</span></div>
+                    <div class="course-item"><span class="course-code">CDS 1195</span><span class="course-name">AI in a Professional Setting</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Fall 2023</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 201</span><span class="course-name">Computer Science I</span></div>
+                    <div class="course-item"><span class="course-code">CS 475/777</span><span class="course-name">Computer Networking</span></div>
+                    <div class="course-item"><span class="course-code">CS 980</span><span class="course-name">Thesis Preparation Seminar</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Spring 2023</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 201</span><span class="course-name">Computer Science I</span></div>
+                    <div class="course-item"><span class="course-code">CS 231</span><span class="course-name">Programming in a UNIX Environment</span></div>
+                    <div class="course-item"><span class="course-code">CS 464/772</span><span class="course-name">Parallel &amp; Scientific Computing</span></div>
+                    <div class="course-item"><span class="course-code">CS 475</span><span class="course-name">Computer Networking (IS)</span></div>
+                </div>
+            </div>
+            <div class="teaching-semester">
+                <div class="semester-label">Fall 2022</div>
+                <div class="course-list">
+                    <div class="course-item"><span class="course-code">CS 140</span><span class="course-name">Computers, Technology &amp; Society</span></div>
+                    <div class="course-item"><span class="course-code">CS 201</span><span class="course-name">Computer Science I</span></div>
+                    <div class="course-item"><span class="course-code">CS 475/777</span><span class="course-name">Computer Networking</span></div>
+                </div>
+            </div>
+        </div>
+        <div style="border-top:1px solid var(--border); padding-top:1.5rem;">
+            <div class="tl-org" style="margin-bottom:0.6rem;">Tennessee Tech University (Teaching Instructor / Assistant, 2016&ndash;2022)</div>
+            <div style="font-size:0.88rem; color:var(--muted);">CSC 1300 (Intro Programming), CSC 2310 (Object-Oriented Programming), CSC 2400 (Design of Algorithms), CSC 2500 (Unix Laboratory) &mdash; multiple semesters from Spring 2016 through Fall 2021.</div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">Ph.D. in Computer Science</div>
+                    <div class="tl-org">Tennessee Tech University, Cookeville, TN</div>
+                    <div class="tl-body"><p>Dissertation: Explainable AI, counterfactual explanation generation, and adversarial machine learning.</p></div>
+                </div>
+                <div class="tl-date">2018 &ndash; 2022</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">M.S. in Computer Science</div>
+                    <div class="tl-org">Tennessee Tech University, Cookeville, TN</div>
+                    <div class="tl-body"><p>Game-theoretic approaches to cloud security.</p></div>
+                </div>
+                <div class="tl-date">2016 &ndash; 2017</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">MBA, Finance</div>
+                    <div class="tl-org">IBA, University of Dhaka, Bangladesh</div>
+                </div>
+                <div class="tl-date">2011 &ndash; 2014</div>
+            </div>
+            <div class="tl-entry">
+                <div>
+                    <div class="tl-title">B.Sc. in Computer Science &amp; Engineering</div>
+                    <div class="tl-org">Bangladesh University of Engineering and Technology (BUET)</div>
+                </div>
+                <div class="tl-date">2004 &ndash; 2009</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+        <h2 class="section-title">Publications</h2>
+        <a class="scholar-link" href="https://scholar.google.com/citations?user=d9jijC0AAAAJ&hl=en" target="_blank">
+            <i class="fas fa-graduation-cap"></i> Google Scholar Profile
+        </a>
+
+        <!-- Journals -->
+        <div class="pub-group">
+            <div class="pub-group-title">Peer-Reviewed Journal Articles</div>
+            <div class="pub-list">
+                <div class="pub-item">
+                    Islam, S.R., Russell, I., Eberle, W., Talbert, D., and <b>Hasan, M.</b> (2026). &ldquo;Explainable, Fair, and Trustworthy AI: Current Research, Regulatory Developments, and Future Directions.&rdquo; <i>International Journal on Artificial Intelligence Tools.</i>
+                    <span class="pub-badge badge-press">In Press</span>
+                </div>
+                <div class="pub-item">
+                    Islam, S.R., Russell, I., Eberle, W., Talbert, D., and <b>Hasan, M.G.M.M.</b> (2024). &ldquo;Advances in Explainable, Fair, and Trustworthy AI.&rdquo; <i>International Journal on Artificial Intelligence Tools,</i> 33(03), 2403001.
+                    <a class="pub-link" href="https://www.worldscientific.com/doi/abs/10.1142/S0218213024030015" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Rahman, M.A. (2020). &ldquo;A signaling game approach to mitigate co-resident attacks in an IaaS cloud environment.&rdquo; <i>Journal of Information Security and Applications,</i> 50, 102397.
+                    <a class="pub-link" href="https://www.sciencedirect.com/science/article/abs/pii/S2214212619303679" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    Rahman, M.A., <b>Hasan, M.G.M.M.</b>, Manshaei, M.H., and Al-Shaer, E. (2020). &ldquo;A game-theoretic analysis to defend against remote operating system fingerprinting.&rdquo; <i>Journal of Information Security and Applications,</i> 52, 102456.
+                    <a class="pub-link" href="https://www.sciencedirect.com/science/article/abs/pii/S2214212619302054" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conferences -->
+        <div class="pub-group">
+            <div class="pub-group-title">Peer-Reviewed Conference Papers</div>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <b>Hasan, M.</b>, Khalil, A., and Rahman, M. &ldquo;OptiGame: Game-Theoretic Enhancements for Optimistic Rollups through Bayesian Strategies.&rdquo; <i>EAI SecureComm 2025.</i>
+                    <span class="pub-badge badge-accepted">Accepted</span>
+                </div>
+                <div class="pub-item">
+                    Venkateswaran, T., Islam, S.R., <b>Hasan, M.G.M.M.</b>, and Ahmed, M. (2023). &ldquo;Aiming to Minimize Alcohol-Impaired Road Fatalities: Utilizing Fairness-Aware and Domain Knowledge-Infused AI.&rdquo; <i>IEEE International Conference on Big Data,</i> pp. 4205&ndash;4212.
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Talbert, D. (2022). &ldquo;Mitigating the Rashomon Effect in Counterfactual Explanation: A Game-Theoretic Approach.&rdquo; <i>35th International FLAIRS Conference.</i>
+                    <a class="pub-link" href="https://journals.flvc.org/FLAIRS/article/download/130711/133840" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Talbert, D. (2022). &ldquo;Data Augmentation Using Counterfactuals: Proximity vs Diversity.&rdquo; <i>35th International FLAIRS Conference.</i>
+                    <a class="pub-link" href="https://journals.flvc.org/FLAIRS/article/download/130705/133843" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Talbert, D. (2021). &ldquo;Counterfactual Examples for Data Augmentation: A Case Study.&rdquo; <i>34th International FLAIRS Conference.</i>
+                    <a class="pub-link" href="https://journals.flvc.org/FLAIRS/article/view/128503" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, Rahman, M.A., Manshaei, M.H., and Saad, W. (2019). &ldquo;A Game-Theoretic Analysis of Pricing Competition between Aggregators in V2G Systems.&rdquo; <i>IEEE COMPSAC 2019.</i>
+                    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8754086" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    Jakaria, A.H.M., Rahman, M.A., and <b>Hasan, M.G.M.M.</b> (2019). &ldquo;Safety Analysis of AMI Networks Through Smart Fraud Detection.&rdquo; <i>IEEE CNS 2019.</i>
+                    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8802845" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Rahman, M.A. (2018). &ldquo;Chained of Things: A Secure and Dependable Design of Autonomous Vehicle Services.&rdquo; <i>IEEE COMPSAC 2018.</i>
+                    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8377911" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, and Rahman, M.A. (2017). &ldquo;Protection by Detection: A Signaling Game Approach to Mitigate Co-Resident Attacks in Cloud.&rdquo; <i>IEEE CLOUD 2017.</i>
+                    <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8030633" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posters -->
+        <div class="pub-group">
+            <div class="pub-group-title">Posters and Abstracts</div>
+            <div class="pub-list">
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, Talbert, D. (2020). &ldquo;Use Case of Counterfactual Examples: Data Augmentation.&rdquo; <i>Proceedings of Student Research and Creative Inquiry Day.</i>
+                    <a class="pub-link" href="https://publish.tntech.edu/index.php/PSRCI/article/view/701" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    Jakaria, A.H.M., <b>Hasan, M.G.M.M.</b> (2019). &ldquo;Smart Fraud Detection in Smart Metering System of AMI Networks.&rdquo; <i>14th Annual Research and Creative Inquiry Day.</i>
+                    <a class="pub-link" href="https://publish.tntech.edu/index.php/PSRCI/article/view/529" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+                <div class="pub-item">
+                    <b>Hasan, M.G.M.M.</b>, Datta, A., Rahman, M.A. (2018). &ldquo;Poster Abstract: Chained of Things: A Secure and Dependable Design of Autonomous Vehicle Services.&rdquo; <i>IEEE/ACM IoTDI 2018.</i>
+                    <a class="pub-link" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=d9jijC0AAAAJ&citation_for_view=d9jijC0AAAAJ:Tyk-4Ss8FVUC" target="_blank"><i class="fas fa-external-link-alt"></i> Link</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presentations -->
+        <div class="pub-group">
+            <div class="pub-group-title">Invited Presentations</div>
+            <div class="pub-list">
+                <div class="pub-item">&ldquo;XAI-Guided Adversarial Attacks: Explaining How Explanations Become Vulnerabilities.&rdquo; <i>Iona University CS Department Seminar,</i> December 2025.</div>
+                <div class="pub-item">&ldquo;Predictive Data Analysis.&rdquo; <i>Iona University Data Science Workshop,</i> March 2026 (upcoming) and March 2025.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><h4>Programming Languages</h4><p>Python, C, C++, Java, C#, Shell Script, PHP, OpenMP, R</p></div>
+            <div class="skill-card"><h4>AI / ML &amp; Data Science</h4><p>TensorFlow, Keras, scikit-learn, NumPy, SciPy, Pandas, Matplotlib, Seaborn, Plotly, SHAP, LIME, DiCE, Tableau, Weka, Jupyter</p></div>
+            <div class="skill-card"><h4>Databases</h4><p>Oracle, MySQL, PostgreSQL, SQLite3</p></div>
+            <div class="skill-card"><h4>Security &amp; Networking Tools</h4><p>Wireshark, Kali Linux, REMnux, Mininet, NS3, Packet Tracer</p></div>
+            <div class="skill-card"><h4>Web &amp; APIs</h4><p>HTML, CSS, JavaScript, JSON, XML, REST</p></div>
+            <div class="skill-card"><h4>Platforms &amp; Frameworks</h4><p>Win32, .NET Framework, Android, Hyperledger Fabric</p></div>
+            <div class="skill-card"><h4>Dev Tools</h4><p>Git, SVN, IntelliJ IDEA, Eclipse, Visual Studio, Microsoft SQL Server</p></div>
+            <div class="skill-card"><h4>Simulation &amp; Optimization</h4><p>CloudSim, CPLEX, OpenGL</p></div>
+        </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service">
+        <h2 class="section-title">Service</h2>
+        <div class="service-group">
+            <div class="service-group-title">Institutional &amp; Departmental</div>
+            <ul class="service-list">
+                <li><b>ABET Coordinator</b> CS Program, Iona University <span class="svc-year">2025&ndash;present</span></li>
+                <li><b>GCTL Provost Fellow</b> Gabelli Center for Transformative Learning &mdash; AI Curriculum Integration (with Dr. Ivanov &amp; Prof. Nuseir); $3,000 stipend <span class="svc-year">2025&ndash;2026</span></li>
+                <li><b>CS Club Moderator</b> Iona University <span class="svc-year">2023&ndash;present</span></li>
+                <li><b>IBM SkillsBuild Mentor</b> AI Experiential Learning Lab (9 students) <span class="svc-year">2025&ndash;2026</span></li>
+                <li><b>Core Curriculum Assessment</b> Iona University (commended by Provost Mulligan) <span class="svc-year">May/Jun 2025</span></li>
+                <li><b>Committee on Libraries &amp; IT</b> Iona University (B-level) <span class="svc-year">2023&ndash;present</span></li>
+                <li><b>Council on the Arts</b> Iona University (C-level) <span class="svc-year">2024&ndash;present</span></li>
+                <li><b>CAA Subcommittee on AI Use Policy</b> Guest member <span class="svc-year">2023&ndash;2024</span></li>
+                <li><b>Faculty Hiring</b> CS Department, Iona University <span class="svc-year">2023&ndash;2024</span></li>
+                <li><b>CS Club Co-Advisor</b> Iona University <span class="svc-year">2022&ndash;2023</span></li>
+            </ul>
+        </div>
+        <div class="service-group">
+            <div class="service-group-title">Conference Leadership</div>
+            <ul class="service-list">
+                <li><b>Track Chair</b> Explainable, Fair &amp; Trustworthy AI Track, FLAIRS-39 <span class="svc-year">2026</span></li>
+                <li><b>Program Co-Chair</b> STPSA 2025 (IEEE COMPSAC Workshop) <span class="svc-year">2025</span></li>
+                <li><b>PC Member</b> FLAIRS-38 <span class="svc-year">2025</span></li>
+                <li><b>PC Member</b> FLAIRS-37 <span class="svc-year">2024</span></li>
+                <li><b>PC Member</b> FLAIRS-36 <span class="svc-year">2023</span></li>
+            </ul>
+        </div>
+        <div class="service-group">
+            <div class="service-group-title">Peer Review</div>
+            <ul class="service-list">
+                <li><b>Reviewer</b> IEEE Transactions on Dependable and Secure Computing (TDSC)</li>
+                <li><b>Reviewer</b> IEEE Transactions on Information Forensics and Security (TIFS)</li>
+                <li><b>Reviewer</b> FLAIRS-39, BRAINS 2025, IJAIT</li>
+                <li><b>Sub-reviewer</b> SmartGridComm&rsquo;19, ICDCN&rsquo;18, NSysS&rsquo;17, ISI WIC&rsquo;16</li>
+            </ul>
+        </div>
+        <div class="service-group">
+            <div class="service-group-title">Community &amp; Student Organizations</div>
+            <ul class="service-list">
+                <li><b>Vice President</b> Data Science League, Tennessee Tech <span class="svc-year">2020&ndash;2021</span></li>
+                <li><b>Member</b> CS Student Advisory Council, Tennessee Tech <span class="svc-year">2021</span></li>
+                <li><b>Vice President</b> BADHAN (Voluntary Blood Donors&rsquo; Org.), BUET Zone <span class="svc-year">2008&ndash;2009</span></li>
+                <li><b>Participant</b> Keep Putnam County Beautiful &ndash; Clean Commission <span class="svc-year">2018</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards">
+        <h2 class="section-title">Honors &amp; Awards</h2>
+        <ul class="award-list">
+            <li>
+                <i class="fas fa-trophy award-icon"></i>
+                <div><b>GCTL Provost Fellowship</b> &mdash; Selected by Provost Dr. Tricia Mulligan to lead AI curriculum integration in CS at Iona University ($3,000 stipend). <span style="color:var(--muted);font-size:0.85rem;">2025&ndash;2026</span></div>
+            </li>
+            <li>
+                <i class="fas fa-star award-icon"></i>
+                <div><b>Core Curriculum Assessment Commendation</b> &mdash; Written acknowledgment from Provost Dr. Tricia Mulligan for contributions to university-wide assessment. <span style="color:var(--muted);font-size:0.85rem;">August 2025</span></div>
+            </li>
+            <li>
+                <i class="fas fa-trophy award-icon"></i>
+                <div><b>NSF Travel Grant</b> &mdash; IEEE Conference on Communications and Network Security. <span style="color:var(--muted);font-size:0.85rem;">June 2019</span></div>
+            </li>
+            <li>
+                <i class="fas fa-award award-icon"></i>
+                <div><b>Member, Phi Kappa Phi Honor Society</b></div>
+            </li>
+            <li>
+                <i class="fas fa-medal award-icon"></i>
+                <div><b>Merit Scholarship</b> &mdash; Excellent results in HSC Examination, Rajshahi Board. <span style="color:var(--muted);font-size:0.85rem;">2004&ndash;2008</span></div>
+            </li>
+            <li>
+                <i class="fas fa-medal award-icon"></i>
+                <div><b>Merit Scholarship</b> &mdash; Excellent results in SSC Examination, Rajshahi Board. <span style="color:var(--muted);font-size:0.85rem;">2001&ndash;2003</span></div>
+            </li>
+        </ul>
+    </section>
+
+</div><!-- /main-content -->
+
+<footer>
+    &copy; 2026 Md Golam Moula Mehedi Hasan &middot; Iona University &middot; Department of Computer Science &middot; Last updated: March 2026
+</footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('sideNav');
+    hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => nav.classList.remove('open'));
+    });
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { threshold: 0.35 });
+    sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
